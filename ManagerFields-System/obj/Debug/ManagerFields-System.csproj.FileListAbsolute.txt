@@ -1,0 +1,11 @@
+C:\Users\tadeo\source\repos\ManagerFields-System\ManagerFields-System\bin\Debug\ManagerFields-System.exe.config
+C:\Users\tadeo\source\repos\ManagerFields-System\ManagerFields-System\bin\Debug\ManagerFields-System.exe
+C:\Users\tadeo\source\repos\ManagerFields-System\ManagerFields-System\bin\Debug\ManagerFields-System.pdb
+C:\Users\tadeo\source\repos\ManagerFields-System\ManagerFields-System\obj\Debug\ManagerFields-System.csproj.AssemblyReference.cache
+C:\Users\tadeo\source\repos\ManagerFields-System\ManagerFields-System\obj\Debug\ManagerFields-System.csproj.SuggestedBindingRedirects.cache
+C:\Users\tadeo\source\repos\ManagerFields-System\ManagerFields-System\obj\Debug\ManagerFields_System.Properties.Resources.resources
+C:\Users\tadeo\source\repos\ManagerFields-System\ManagerFields-System\obj\Debug\ManagerFields-System.csproj.GenerateResource.cache
+C:\Users\tadeo\source\repos\ManagerFields-System\ManagerFields-System\obj\Debug\ManagerFields-System.csproj.CoreCompileInputs.cache
+C:\Users\tadeo\source\repos\ManagerFields-System\ManagerFields-System\obj\Debug\ManagerFields-System.exe
+C:\Users\tadeo\source\repos\ManagerFields-System\ManagerFields-System\obj\Debug\ManagerFields-System.pdb
+C:\Users\tadeo\source\repos\ManagerFields-System\ManagerFields-System\obj\Debug\ManagerFields_System.Vista.TurnosVista.resources
