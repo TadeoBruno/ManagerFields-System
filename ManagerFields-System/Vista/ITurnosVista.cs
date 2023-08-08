@@ -14,6 +14,9 @@ namespace ManagerFields_System.Vista
         string DescripcionTurno { get; set; }
         string FechaTurno { get; set; }
         string HoraTurno { get; set; }
+        string PecherasTurno { get; set; }
+        string PelotaTurno { get; set; }
+        //string CanchaTurno { get; set; }
 
         string SearchValue { get; set; }
         bool IsEdit { get; set; }

@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ManagerFields_System.Vista;
+using ManagerFields_System.Presentador;
+using ManagerFields_System.Modelo;
+using ManagerFields_System._Repositorio;
+using System.Configuration;
+using System.Data.SqlClient;
 
 namespace ManagerFields_System
 {
@@ -16,7 +22,10 @@ namespace ManagerFields_System
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form());
+            string sqlConecctionString = ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
+            IMainVista vista = new MainVista();
+            new MainPresentador(vista, sqlConecctionString);
+            Application.Run((Form)vista);
         }
     }
 }

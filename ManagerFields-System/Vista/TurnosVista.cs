@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace ManagerFields_System.Vista
 {
-    public partial class TurnosVista : Form, ITurnosVista
+    public partial class TurnosVistaFrom : Form, ITurnosVista
     {
         //Campos
         private string message;
@@ -19,7 +19,7 @@ namespace ManagerFields_System.Vista
         private bool isEdit;
 
         //Constructor
-        public TurnosVista()
+        public TurnosVistaFrom()
         {
             InitializeComponent();
             AsociarYGenerarEventosVista();
@@ -60,7 +60,65 @@ namespace ManagerFields_System.Vista
             get {return txtHoraTurno.Text; }
             set {txtHoraTurno.Text = value; }
         }
-        
+
+        public string PecherasTurno
+        {
+            get {
+                if (rbtnNoPecheras.Checked)
+                    return rbtnNoPecheras.Text;
+                else if (rbtnSiPecheras.Checked)
+                    return rbtnSiPecheras.Text;
+                return "";
+            }
+            set {
+                if (value == rbtnNoPecheras.Text)
+                    rbtnNoPecheras.Checked = true;
+                else if (value == rbtnSiPecheras.Text)
+                    rbtnSiPecheras.Checked = true;
+            }
+        }
+
+        public string PelotaTurno
+        {
+            get {
+                if (rbtnNoPelota.Checked) 
+                    return rbtnNoPelota.Text;
+                else if (rbtnSiPelota.Checked)
+                    return rbtnSiPelota.Text;
+                return "";
+            }
+            set {
+                if (value == rbtnNoPelota.Text)
+                    rbtnNoPelota.Checked = true;
+                else if (value == rbtnSiPelota.Text)
+                    rbtnSiPelota.Checked = true;
+            }
+        }
+
+        /*public string CanchaTurno
+        {
+            get
+            {
+                if (rbtnCancha1.Checked)
+                    return rbtnCancha1.Text;
+                else if (rbtnCancha2.Checked)
+                    return rbtnCancha2.Text;
+                else if (rbtnCancha3.Checked)
+                    return rbtnCancha3.Text;
+                return "";
+            }
+            set
+            {
+                if (value == rbtnCancha1.Text)
+                    rbtnCancha1.Checked = true;
+                else if (value == rbtnCancha2.Text)
+                    rbtnCancha2.Checked = true;
+                else if (value == rbtnCancha3.Text)
+                    rbtnCancha3.Checked = true;
+            }
+        }
+        */
+
         public string SearchValue 
         {
             get { return txtSearch.Text; }
