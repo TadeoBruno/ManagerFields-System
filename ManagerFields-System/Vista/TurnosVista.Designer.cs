@@ -1,6 +1,6 @@
 ﻿namespace ManagerFields_System.Vista
 {
-    partial class TurnosVistaFrom
+    partial class TurnosVistaForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lbl1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCerrar = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPageTurnosLista = new System.Windows.Forms.TabPage();
             this.btnEditarTurno = new System.Windows.Forms.Button();
             this.btnEliminarTurno = new System.Windows.Forms.Button();
             this.btnAgregarTurno = new System.Windows.Forms.Button();
@@ -42,16 +43,10 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPageDetalleTurnos = new System.Windows.Forms.TabPage();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
-            this.rbtnNoPelota = new System.Windows.Forms.RadioButton();
-            this.rbtnSiPelota = new System.Windows.Forms.RadioButton();
-            this.label7 = new System.Windows.Forms.Label();
-            this.rbtnNoPecheras = new System.Windows.Forms.RadioButton();
-            this.rbtnSiPecheras = new System.Windows.Forms.RadioButton();
             this.label6 = new System.Windows.Forms.Label();
-            this.btbGuardarTurno = new System.Windows.Forms.Button();
-            this.btbCancelarTurno = new System.Windows.Forms.Button();
+            this.btnGuardarTurno = new System.Windows.Forms.Button();
+            this.btnCancelarTurno = new System.Windows.Forms.Button();
             this.txtFechaTurno = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtHoraTurno = new System.Windows.Forms.TextBox();
@@ -60,12 +55,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtIdTurno = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtbPelota = new System.Windows.Forms.TextBox();
+            this.txtbPecheras = new System.Windows.Forms.TextBox();
+            this.txtbCancha = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.tabPageTurnosLista.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabPageDetalleTurnos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl1
@@ -85,6 +83,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.btnCerrar);
             this.panel1.Controls.Add(this.lbl1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -92,12 +91,22 @@
             this.panel1.Size = new System.Drawing.Size(942, 55);
             this.panel1.TabIndex = 1;
             // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCerrar.BackColor = System.Drawing.Color.White;
+            this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrar.Location = new System.Drawing.Point(823, 15);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(107, 26);
+            this.btnCerrar.TabIndex = 7;
+            this.btnCerrar.Text = "Cerrar";
+            this.btnCerrar.UseVisualStyleBackColor = false;
+            // 
             // tabControl1
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl1.Controls.Add(this.tabPageTurnosLista);
             this.tabControl1.Controls.Add(this.tabPageDetalleTurnos);
             this.tabControl1.Location = new System.Drawing.Point(0, 55);
             this.tabControl1.Name = "tabControl1";
@@ -105,26 +114,26 @@
             this.tabControl1.Size = new System.Drawing.Size(942, 434);
             this.tabControl1.TabIndex = 2;
             // 
-            // tabPage1
+            // tabPageTurnosLista
             // 
-            this.tabPage1.Controls.Add(this.btnEditarTurno);
-            this.tabPage1.Controls.Add(this.btnEliminarTurno);
-            this.tabPage1.Controls.Add(this.btnAgregarTurno);
-            this.tabPage1.Controls.Add(this.dataGridView1);
-            this.tabPage1.Controls.Add(this.btnBuscarTurno);
-            this.tabPage1.Controls.Add(this.txtSearch);
-            this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 29);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(934, 401);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Lista Turnos";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPageTurnosLista.Controls.Add(this.btnEditarTurno);
+            this.tabPageTurnosLista.Controls.Add(this.btnEliminarTurno);
+            this.tabPageTurnosLista.Controls.Add(this.btnAgregarTurno);
+            this.tabPageTurnosLista.Controls.Add(this.dataGridView1);
+            this.tabPageTurnosLista.Controls.Add(this.btnBuscarTurno);
+            this.tabPageTurnosLista.Controls.Add(this.txtSearch);
+            this.tabPageTurnosLista.Controls.Add(this.label1);
+            this.tabPageTurnosLista.Location = new System.Drawing.Point(4, 29);
+            this.tabPageTurnosLista.Name = "tabPageTurnosLista";
+            this.tabPageTurnosLista.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageTurnosLista.Size = new System.Drawing.Size(934, 401);
+            this.tabPageTurnosLista.TabIndex = 0;
+            this.tabPageTurnosLista.Text = "Lista Turnos";
+            this.tabPageTurnosLista.UseVisualStyleBackColor = true;
             // 
             // btnEditarTurno
             // 
-            this.btnEditarTurno.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnEditarTurno.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEditarTurno.BackColor = System.Drawing.Color.White;
             this.btnEditarTurno.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditarTurno.Location = new System.Drawing.Point(818, 179);
@@ -136,7 +145,7 @@
             // 
             // btnEliminarTurno
             // 
-            this.btnEliminarTurno.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnEliminarTurno.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEliminarTurno.BackColor = System.Drawing.Color.White;
             this.btnEliminarTurno.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminarTurno.Location = new System.Drawing.Point(818, 129);
@@ -148,7 +157,7 @@
             // 
             // btnAgregarTurno
             // 
-            this.btnAgregarTurno.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnAgregarTurno.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAgregarTurno.BackColor = System.Drawing.Color.White;
             this.btnAgregarTurno.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregarTurno.Location = new System.Drawing.Point(818, 77);
@@ -172,14 +181,14 @@
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.Location = new System.Drawing.Point(25, 67);
@@ -187,18 +196,18 @@
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.Size = new System.Drawing.Size(775, 316);
             this.dataGridView1.TabIndex = 3;
             // 
             // btnBuscarTurno
             // 
-            this.btnBuscarTurno.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnBuscarTurno.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnBuscarTurno.BackColor = System.Drawing.Color.White;
             this.btnBuscarTurno.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarTurno.Location = new System.Drawing.Point(693, 35);
@@ -210,8 +219,7 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSearch.Location = new System.Drawing.Point(25, 35);
             this.txtSearch.Name = "txtSearch";
@@ -232,16 +240,14 @@
             // 
             // tabPageDetalleTurnos
             // 
-            this.tabPageDetalleTurnos.Controls.Add(this.numericUpDown1);
-            this.tabPageDetalleTurnos.Controls.Add(this.label8);
-            this.tabPageDetalleTurnos.Controls.Add(this.rbtnNoPelota);
-            this.tabPageDetalleTurnos.Controls.Add(this.rbtnSiPelota);
-            this.tabPageDetalleTurnos.Controls.Add(this.label7);
-            this.tabPageDetalleTurnos.Controls.Add(this.rbtnNoPecheras);
-            this.tabPageDetalleTurnos.Controls.Add(this.rbtnSiPecheras);
+            this.tabPageDetalleTurnos.Controls.Add(this.txtbCancha);
+            this.tabPageDetalleTurnos.Controls.Add(this.txtbPecheras);
             this.tabPageDetalleTurnos.Controls.Add(this.label6);
-            this.tabPageDetalleTurnos.Controls.Add(this.btbGuardarTurno);
-            this.tabPageDetalleTurnos.Controls.Add(this.btbCancelarTurno);
+            this.tabPageDetalleTurnos.Controls.Add(this.txtbPelota);
+            this.tabPageDetalleTurnos.Controls.Add(this.label7);
+            this.tabPageDetalleTurnos.Controls.Add(this.label8);
+            this.tabPageDetalleTurnos.Controls.Add(this.btnGuardarTurno);
+            this.tabPageDetalleTurnos.Controls.Add(this.btnCancelarTurno);
             this.tabPageDetalleTurnos.Controls.Add(this.txtFechaTurno);
             this.tabPageDetalleTurnos.Controls.Add(this.label5);
             this.tabPageDetalleTurnos.Controls.Add(this.txtHoraTurno);
@@ -258,104 +264,47 @@
             this.tabPageDetalleTurnos.Text = "Detalle Turnos";
             this.tabPageDetalleTurnos.UseVisualStyleBackColor = true;
             // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(679, 31);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(40, 26);
-            this.numericUpDown1.TabIndex = 17;
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(605, 33);
+            this.label8.Location = new System.Drawing.Point(572, 35);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(68, 20);
             this.label8.TabIndex = 16;
             this.label8.Text = "Cancha:";
             // 
-            // rbtnNoPelota
-            // 
-            this.rbtnNoPelota.AutoSize = true;
-            this.rbtnNoPelota.Location = new System.Drawing.Point(523, 56);
-            this.rbtnNoPelota.Name = "rbtnNoPelota";
-            this.rbtnNoPelota.Size = new System.Drawing.Size(47, 24);
-            this.rbtnNoPelota.TabIndex = 15;
-            this.rbtnNoPelota.TabStop = true;
-            this.rbtnNoPelota.Text = "No";
-            this.rbtnNoPelota.UseVisualStyleBackColor = true;
-            // 
-            // rbtnSiPelota
-            // 
-            this.rbtnSiPelota.AutoSize = true;
-            this.rbtnSiPelota.Location = new System.Drawing.Point(523, 31);
-            this.rbtnSiPelota.Name = "rbtnSiPelota";
-            this.rbtnSiPelota.Size = new System.Drawing.Size(41, 24);
-            this.rbtnSiPelota.TabIndex = 14;
-            this.rbtnSiPelota.TabStop = true;
-            this.rbtnSiPelota.Text = "Si";
-            this.rbtnSiPelota.UseVisualStyleBackColor = true;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(459, 33);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(58, 20);
-            this.label7.TabIndex = 13;
-            this.label7.Text = "Pelota:";
-            // 
-            // rbtnNoPecheras
-            // 
-            this.rbtnNoPecheras.AutoSize = true;
-            this.rbtnNoPecheras.Location = new System.Drawing.Point(369, 56);
-            this.rbtnNoPecheras.Name = "rbtnNoPecheras";
-            this.rbtnNoPecheras.Size = new System.Drawing.Size(47, 24);
-            this.rbtnNoPecheras.TabIndex = 12;
-            this.rbtnNoPecheras.TabStop = true;
-            this.rbtnNoPecheras.Text = "No";
-            this.rbtnNoPecheras.UseVisualStyleBackColor = true;
-            // 
-            // rbtnSiPecheras
-            // 
-            this.rbtnSiPecheras.AutoSize = true;
-            this.rbtnSiPecheras.Location = new System.Drawing.Point(369, 31);
-            this.rbtnSiPecheras.Name = "rbtnSiPecheras";
-            this.rbtnSiPecheras.Size = new System.Drawing.Size(41, 24);
-            this.rbtnSiPecheras.TabIndex = 11;
-            this.rbtnSiPecheras.TabStop = true;
-            this.rbtnSiPecheras.Text = "Si";
-            this.rbtnSiPecheras.UseVisualStyleBackColor = true;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(283, 33);
+            this.label6.Location = new System.Drawing.Point(402, 35);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(80, 20);
             this.label6.TabIndex = 10;
             this.label6.Text = "Pecheras:";
             // 
-            // btbGuardarTurno
+            // btnGuardarTurno
             // 
-            this.btbGuardarTurno.Location = new System.Drawing.Point(37, 289);
-            this.btbGuardarTurno.Name = "btbGuardarTurno";
-            this.btbGuardarTurno.Size = new System.Drawing.Size(139, 50);
-            this.btbGuardarTurno.TabIndex = 9;
-            this.btbGuardarTurno.Text = "Guardar";
-            this.btbGuardarTurno.UseVisualStyleBackColor = true;
+            this.btnGuardarTurno.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnGuardarTurno.Location = new System.Drawing.Point(37, 289);
+            this.btnGuardarTurno.Name = "btnGuardarTurno";
+            this.btnGuardarTurno.Size = new System.Drawing.Size(139, 50);
+            this.btnGuardarTurno.TabIndex = 9;
+            this.btnGuardarTurno.Text = "Guardar";
+            this.btnGuardarTurno.UseVisualStyleBackColor = true;
             // 
-            // btbCancelarTurno
+            // btnCancelarTurno
             // 
-            this.btbCancelarTurno.Location = new System.Drawing.Point(284, 289);
-            this.btbCancelarTurno.Name = "btbCancelarTurno";
-            this.btbCancelarTurno.Size = new System.Drawing.Size(139, 50);
-            this.btbCancelarTurno.TabIndex = 8;
-            this.btbCancelarTurno.Text = "Cancelar";
-            this.btbCancelarTurno.UseVisualStyleBackColor = true;
+            this.btnCancelarTurno.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnCancelarTurno.Location = new System.Drawing.Point(284, 289);
+            this.btnCancelarTurno.Name = "btnCancelarTurno";
+            this.btnCancelarTurno.Size = new System.Drawing.Size(139, 50);
+            this.btnCancelarTurno.TabIndex = 8;
+            this.btnCancelarTurno.Text = "Cancelar";
+            this.btnCancelarTurno.UseVisualStyleBackColor = true;
             // 
             // txtFechaTurno
             // 
+            this.txtFechaTurno.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtFechaTurno.Location = new System.Drawing.Point(37, 130);
             this.txtFechaTurno.Name = "txtFechaTurno";
             this.txtFechaTurno.Size = new System.Drawing.Size(158, 26);
@@ -372,6 +321,7 @@
             // 
             // txtHoraTurno
             // 
+            this.txtHoraTurno.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtHoraTurno.Location = new System.Drawing.Point(265, 130);
             this.txtHoraTurno.Name = "txtHoraTurno";
             this.txtHoraTurno.Size = new System.Drawing.Size(158, 26);
@@ -388,6 +338,7 @@
             // 
             // txtDescripcionTurno
             // 
+            this.txtDescripcionTurno.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtDescripcionTurno.Location = new System.Drawing.Point(37, 212);
             this.txtDescripcionTurno.Name = "txtDescripcionTurno";
             this.txtDescripcionTurno.Size = new System.Drawing.Size(386, 26);
@@ -404,6 +355,7 @@
             // 
             // txtIdTurno
             // 
+            this.txtIdTurno.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtIdTurno.Location = new System.Drawing.Point(37, 58);
             this.txtIdTurno.Name = "txtIdTurno";
             this.txtIdTurno.Size = new System.Drawing.Size(158, 26);
@@ -418,7 +370,37 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Id:";
             // 
-            // TurnosVistaFrom
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(251, 35);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(58, 20);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "Pelota:";
+            // 
+            // txtbPelota
+            // 
+            this.txtbPelota.Location = new System.Drawing.Point(315, 32);
+            this.txtbPelota.Name = "txtbPelota";
+            this.txtbPelota.Size = new System.Drawing.Size(43, 26);
+            this.txtbPelota.TabIndex = 20;
+            // 
+            // txtbPecheras
+            // 
+            this.txtbPecheras.Location = new System.Drawing.Point(488, 32);
+            this.txtbPecheras.Name = "txtbPecheras";
+            this.txtbPecheras.Size = new System.Drawing.Size(43, 26);
+            this.txtbPecheras.TabIndex = 21;
+            // 
+            // txtbCancha
+            // 
+            this.txtbCancha.Location = new System.Drawing.Point(646, 32);
+            this.txtbCancha.Name = "txtbCancha";
+            this.txtbCancha.Size = new System.Drawing.Size(41, 26);
+            this.txtbCancha.TabIndex = 22;
+            // 
+            // TurnosVistaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -427,18 +409,17 @@
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "TurnosVistaFrom";
+            this.Name = "TurnosVistaForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Turnos";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
+            this.tabPageTurnosLista.ResumeLayout(false);
+            this.tabPageTurnosLista.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPageDetalleTurnos.ResumeLayout(false);
             this.tabPageDetalleTurnos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -448,7 +429,7 @@
         private System.Windows.Forms.Label lbl1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPageTurnosLista;
         private System.Windows.Forms.Button btnBuscarTurno;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label label1;
@@ -465,15 +446,14 @@
         private System.Windows.Forms.TextBox txtHoraTurno;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtDescripcionTurno;
-        private System.Windows.Forms.Button btbGuardarTurno;
-        private System.Windows.Forms.Button btbCancelarTurno;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Button btnGuardarTurno;
+        private System.Windows.Forms.Button btnCancelarTurno;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.RadioButton rbtnNoPelota;
-        private System.Windows.Forms.RadioButton rbtnSiPelota;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.RadioButton rbtnNoPecheras;
-        private System.Windows.Forms.RadioButton rbtnSiPecheras;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnCerrar;
+        private System.Windows.Forms.TextBox txtbCancha;
+        private System.Windows.Forms.TextBox txtbPecheras;
+        private System.Windows.Forms.TextBox txtbPelota;
+        private System.Windows.Forms.Label label7;
     }
 }

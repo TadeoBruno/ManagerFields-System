@@ -15,7 +15,7 @@ namespace ManagerFields_System.Vista
         public MainVista()
         {
             InitializeComponent();
-            btnTurnos.Click += delegate { MostarTurnosVista?.Invoke(this, EventArgs.Empty); };
+            btnTurnos.Click += delegate { MostarTurnosVista?.Invoke(this, EventArgs.Empty); };  
         }
 
         public event EventHandler MostarTurnosVista;

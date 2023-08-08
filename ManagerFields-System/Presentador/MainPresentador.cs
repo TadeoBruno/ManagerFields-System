@@ -23,7 +23,7 @@ namespace ManagerFields_System.Presentador
 
         private void MostrarTurnosVista(object sender, EventArgs e)
         {
-            ITurnosVista vista = new TurnosVistaFrom();
+            ITurnosVista vista = TurnosVistaForm.GetInstance((MainVista)mainVista);
             ITurnosRepositorio repositorio = new TurnoRepositorio(sqlConecctionString);
             new TurnosPresentador(vista, repositorio);
         }

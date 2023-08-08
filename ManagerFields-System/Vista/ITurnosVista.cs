@@ -9,14 +9,14 @@ namespace ManagerFields_System.Vista
 {
     public interface ITurnosVista
     {
-        //Propiedades - Capos
+        //Propiedades - Capas
         string IdTurno { get; set; }
         string DescripcionTurno { get; set; }
         string FechaTurno { get; set; }
         string HoraTurno { get; set; }
         string PecherasTurno { get; set; }
         string PelotaTurno { get; set; }
-        //string CanchaTurno { get; set; }
+        string CanchaTurno { get; set; }
 
         string SearchValue { get; set; }
         bool IsEdit { get; set; }

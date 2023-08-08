@@ -57,27 +57,88 @@ namespace ManagerFields_System.Presentador
 
         private void CancelarAcción(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            CleanviewFields();
         }
 
         private void GuardarTurno(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            var modelo = new TurnoModelo();
+            modelo.IdTurno = Convert.ToInt32(vista.IdTurno);
+            modelo.DescripcionTurno = vista.DescripcionTurno;
+            //modelo.HoraTurno = Convert.ToString(vista.HoraTurno);
+            //modelo.FechaTurno = Convert.ToDateTime(vista.FechaTurno);
+            modelo.PecherasTurno = vista.PecherasTurno;
+            modelo.PelotaTurno = vista.PelotaTurno;
+            modelo.CanchaTurno = Convert.ToInt32(vista.CanchaTurno);
+
+            try
+            {
+                new Tareas_Comunes.ModelDataValitation().Validate(modelo);
+                if (vista.IsEdit)  //Editar modelo existente    
+                {
+                    repositorio.Edit(modelo);
+                    vista.MessageResult = "Turno editado con éxito";
+                }
+                else //Agregar nuevo modelo
+                {
+                    repositorio.Add(modelo);
+                    vista.MessageResult = "Turno agregado con éxito";
+                }
+                vista.IsSuccessful = true;
+                LoadAllTurnosList();
+                CleanviewFields();
+            }
+            catch (Exception ex)
+            {
+                vista.IsSuccessful = false;
+                vista.MessageResult = ex.Message;
+            }
+        }
+
+        private void CleanviewFields()
+        {
+            vista.IdTurno = "0";
+            vista.DescripcionTurno = "";
+            vista.HoraTurno = "";
+            vista.FechaTurno = "";
+            vista.PecherasTurno = "";
+            vista.PelotaTurno = "";
+            vista.CanchaTurno = "";
         }
 
         private void EliminarTurnoSeleccionado(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var turno = (TurnoModelo)turnosBindingSource.Current;
+                repositorio.Delete(turno.IdTurno);
+                vista.IsSuccessful = true;
+                vista.MessageResult = "Turno eliminado con éxito";
+                LoadAllTurnosList();
+            }
+            catch (Exception ex)
+            {
+                vista.IsSuccessful = false;
+                vista.MessageResult = "A ocurrido un error, no se pudo eliminar el turno";
+            }
         }
 
         private void RecuperarTurnoParaEditar(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            var turno = (TurnoModelo)turnosBindingSource.Current;
+            vista.IdTurno = turno.IdTurno.ToString();
+            vista.DescripcionTurno = turno.DescripcionTurno;
+            vista.HoraTurno = turno.HoraTurno.ToString();
+            vista.FechaTurno = turno.FechaTurno.ToString();
+            vista.PecherasTurno = turno.PecherasTurno.ToString();
+            vista.PelotaTurno = turno.PelotaTurno.ToString(); 
+            vista.CanchaTurno = turno.CanchaTurno.ToString();
+            vista.IsEdit = true;
         }
 
         private void AgregarTurno(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            vista.IsEdit = false;
         }
 
     }

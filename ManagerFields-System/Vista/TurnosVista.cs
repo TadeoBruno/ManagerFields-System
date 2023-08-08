@@ -8,10 +8,14 @@ using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ManagerFields_System.Modelo;
+using ManagerFields_System._Repositorio;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
+using System.Data.Linq;
 
 namespace ManagerFields_System.Vista
 {
-    public partial class TurnosVistaFrom : Form, ITurnosVista
+    public partial class TurnosVistaForm : Form, ITurnosVista
     {
         //Campos
         private string message;
@@ -19,21 +23,73 @@ namespace ManagerFields_System.Vista
         private bool isEdit;
 
         //Constructor
-        public TurnosVistaFrom()
+        public TurnosVistaForm()
         {
             InitializeComponent();
             AsociarYGenerarEventosVista();
             tabControl1.TabPages.Remove(tabPageDetalleTurnos);
+            btnCerrar.Click += delegate { this.Close(); };
         }
 
         private void AsociarYGenerarEventosVista()
         {
+            //Buscar
             btnBuscarTurno.Click += delegate { SearchEvent?.Invoke(this, EventArgs.Empty); } ;
             btnBuscarTurno.KeyDown+=(s,e)=>
             {
                 if (e.KeyCode == Keys.Enter)
                     SearchEvent?.Invoke(this, EventArgs.Empty);
             };
+
+            //Agergar
+            btnAgregarTurno.Click += delegate 
+            { 
+                AddNewEvent?.Invoke(this, EventArgs.Empty);
+                tabControl1.TabPages.Remove(tabPageTurnosLista );
+                tabControl1.TabPages.Add(tabPageDetalleTurnos);
+                tabPageDetalleTurnos.Text = "Agregar Turno";
+            };
+
+            //Editar
+            btnEditarTurno.Click += delegate
+            { 
+                EditEvent?.Invoke(this, EventArgs.Empty);
+                tabControl1.TabPages.Remove(tabPageTurnosLista);
+                tabControl1.TabPages.Add(tabPageDetalleTurnos);
+                tabPageDetalleTurnos.Text = "Editar Turno";
+            };
+
+            //Eliminar
+            btnEliminarTurno.Click += delegate 
+            {
+                var result = MessageBox.Show("Estas seguro de que quieres eliminar el turno seleccionado?","Warning",MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    DeleteEvent?.Invoke(this, EventArgs.Empty);
+                    MessageBox.Show(message);
+                }
+            };
+
+            //Cancelar
+            btnCancelarTurno.Click += delegate
+            { 
+                CancelEvent?.Invoke(this, EventArgs.Empty);
+                tabControl1.TabPages.Remove(tabPageDetalleTurnos);
+                tabControl1.TabPages.Add(tabPageTurnosLista);
+            };
+
+            //Guardar
+            btnGuardarTurno.Click += delegate 
+            {
+                SaveEvent?.Invoke(this, EventArgs.Empty);
+                if (isSuccessful)
+                {
+                    tabControl1.TabPages.Remove(tabPageDetalleTurnos);
+                    tabControl1.TabPages.Add(tabPageTurnosLista);
+                }
+                MessageBox.Show(message);
+            };
+
         }
 
         //Propiedades
@@ -63,61 +119,21 @@ namespace ManagerFields_System.Vista
 
         public string PecherasTurno
         {
-            get {
-                if (rbtnNoPecheras.Checked)
-                    return rbtnNoPecheras.Text;
-                else if (rbtnSiPecheras.Checked)
-                    return rbtnSiPecheras.Text;
-                return "";
-            }
-            set {
-                if (value == rbtnNoPecheras.Text)
-                    rbtnNoPecheras.Checked = true;
-                else if (value == rbtnSiPecheras.Text)
-                    rbtnSiPecheras.Checked = true;
-            }
+            get { return txtbPecheras.Text; }
+            set { txtbPecheras.Text = value; }
         }
 
         public string PelotaTurno
         {
-            get {
-                if (rbtnNoPelota.Checked) 
-                    return rbtnNoPelota.Text;
-                else if (rbtnSiPelota.Checked)
-                    return rbtnSiPelota.Text;
-                return "";
-            }
-            set {
-                if (value == rbtnNoPelota.Text)
-                    rbtnNoPelota.Checked = true;
-                else if (value == rbtnSiPelota.Text)
-                    rbtnSiPelota.Checked = true;
-            }
+            get { return txtbPelota.Text; }
+            set { txtbPelota.Text = value; }
         }
 
-        /*public string CanchaTurno
+        public string CanchaTurno
         {
-            get
-            {
-                if (rbtnCancha1.Checked)
-                    return rbtnCancha1.Text;
-                else if (rbtnCancha2.Checked)
-                    return rbtnCancha2.Text;
-                else if (rbtnCancha3.Checked)
-                    return rbtnCancha3.Text;
-                return "";
-            }
-            set
-            {
-                if (value == rbtnCancha1.Text)
-                    rbtnCancha1.Checked = true;
-                else if (value == rbtnCancha2.Text)
-                    rbtnCancha2.Checked = true;
-                else if (value == rbtnCancha3.Text)
-                    rbtnCancha3.Checked = true;
-            }
+            get { return txtbCancha.Text; }
+            set { txtbCancha.Text = value; }
         }
-        */
 
         public string SearchValue 
         {
@@ -157,6 +173,26 @@ namespace ManagerFields_System.Vista
         public void SetTurnosListaBindingSource(BindingSource turnosLista)
         {
             dataGridView1.DataSource = turnosLista;
+        }
+
+        //Singleton
+        private static TurnosVistaForm instance;
+        public static TurnosVistaForm GetInstance(Form parentContainer)
+        {
+            if (instance == null || instance.IsDisposed)
+            {
+                instance = new TurnosVistaForm();
+                instance.MdiParent = parentContainer;
+                instance.FormBorderStyle = FormBorderStyle.None;
+                instance.Dock = DockStyle.Fill;
+            }
+            else
+            {
+                if (instance.WindowState == FormWindowState.Minimized)
+                    instance.WindowState = FormWindowState.Normal;
+                instance.BringToFront();
+            }
+            return instance;
         }
     }
 }

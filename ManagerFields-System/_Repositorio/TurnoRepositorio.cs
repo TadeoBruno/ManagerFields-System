@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 using ManagerFields_System.Modelo;
+using ManagerFields_System.Vista;
 
 namespace ManagerFields_System._Repositorio
 {
@@ -19,17 +20,53 @@ namespace ManagerFields_System._Repositorio
         //Metodos
         public void Add(TurnoModelo turnoModelo)
         {
-            throw new NotImplementedException();
+            using (var connection = new SqlConnection(connectionString))
+            using (var command = new SqlCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = "insert into Turnos values (@descripcion, @hora, @fecha, @pecheras, @pelota)";
+                command.Parameters.Add("@descripcion", SqlDbType.NVarChar).Value = turnoModelo.DescripcionTurno;
+                command.Parameters.Add("@hora", SqlDbType.Time).Value = turnoModelo.HoraTurno;
+                command.Parameters.Add("@fecha", SqlDbType.Date).Value = turnoModelo.FechaTurno;
+                command.Parameters.Add("@pecheras", SqlDbType.NVarChar).Value = turnoModelo.PecherasTurno;
+                command.Parameters.Add("@pelota", SqlDbType.NVarChar).Value = turnoModelo.PelotaTurno;
+                command.Parameters.Add("@cancha", SqlDbType.Int).Value = turnoModelo.PelotaTurno;
+                command.ExecuteNonQuery();
+            }
         }
 
         public void Delete(int idTurno)
         {
-            throw new NotImplementedException();
+            using (var connection = new SqlConnection(connectionString))
+            using (var command = new SqlCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = "delete from Turnos where turno_id=@id";
+                command.Parameters.Add("@id", SqlDbType.Int).Value = idTurno;
+                command.ExecuteNonQuery();
+            }
         }
 
         public void Edit(TurnoModelo turnoModelo)
         {
-            throw new NotImplementedException();
+            using (var connection = new SqlConnection(connectionString))
+            using (var command = new SqlCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = @"update Turno
+                                        set turno_descripcion=@descripcion, turno_hora=@hora, turno_fecha=@fecha, turno_pecheras=@pecheras, turno_pelota=@pelota, turno_cancha=@cancha
+                                        where turno_id=@id";
+                command.Parameters.Add("@descripcion", SqlDbType.NVarChar).Value = turnoModelo.DescripcionTurno;
+                command.Parameters.Add("@hora", SqlDbType.Time).Value = turnoModelo.HoraTurno;
+                command.Parameters.Add("@fecha", SqlDbType.Date).Value = turnoModelo.FechaTurno;
+                command.Parameters.Add("@pecheras", SqlDbType.NVarChar).Value = turnoModelo.PecherasTurno;
+                command.Parameters.Add("@pelota", SqlDbType.NVarChar).Value = turnoModelo.PelotaTurno;
+                command.Parameters.Add("@cancha", SqlDbType.Int).Value = turnoModelo.PelotaTurno;
+                command.ExecuteNonQuery();
+            }
         }
 
         public IEnumerable<TurnoModelo> GetAll()
@@ -50,8 +87,9 @@ namespace ManagerFields_System._Repositorio
                         turnoModel.DescripcionTurno = reader[1].ToString();
                         turnoModel.FechaTurno = (DateTime)reader[2];
                         turnoModel.HoraTurno = (TimeSpan)reader[3];
-                        turnoModel.PecherasTurno = (bool)reader[4];
-                        turnoModel.PelotaTurno = (bool)reader[5];
+                        turnoModel.PecherasTurno = (string)reader[4];
+                        turnoModel.PelotaTurno = (string)reader[5];
+                        turnoModel.CanchaTurno = (int)reader[6];
                         turnosLista.Add(turnoModel);
 
                     }
@@ -86,8 +124,9 @@ namespace ManagerFields_System._Repositorio
                         turnoModel.DescripcionTurno = reader[1].ToString();
                         turnoModel.FechaTurno = (DateTime)reader[2];
                         turnoModel.HoraTurno = (TimeSpan)reader[3];
-                        turnoModel.PecherasTurno = (bool)reader[4];
-                        turnoModel.PelotaTurno = (bool)reader[5];
+                        turnoModel.PecherasTurno = (string)reader[4];
+                        turnoModel.PelotaTurno = (string)reader[5];
+                        turnoModel.CanchaTurno = (int)reader[6];
                         turnosLista.Add(turnoModel);
 
                     }

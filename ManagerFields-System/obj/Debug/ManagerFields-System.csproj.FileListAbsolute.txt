@@ -8,5 +8,5 @@ C:\Users\tadeo\source\repos\ManagerFields-System\ManagerFields-System\obj\Debug\
 C:\Users\tadeo\source\repos\ManagerFields-System\ManagerFields-System\obj\Debug\ManagerFields-System.csproj.CoreCompileInputs.cache
 C:\Users\tadeo\source\repos\ManagerFields-System\ManagerFields-System\obj\Debug\ManagerFields-System.exe
 C:\Users\tadeo\source\repos\ManagerFields-System\ManagerFields-System\obj\Debug\ManagerFields-System.pdb
-C:\Users\tadeo\source\repos\ManagerFields-System\ManagerFields-System\obj\Debug\ManagerFields_System.Vista.TurnosVistaFrom.resources
 C:\Users\tadeo\source\repos\ManagerFields-System\ManagerFields-System\obj\Debug\ManagerFields_System.Vista.MainVista.resources
+C:\Users\tadeo\source\repos\ManagerFields-System\ManagerFields-System\obj\Debug\ManagerFields_System.Vista.TurnosVistaForm.resources

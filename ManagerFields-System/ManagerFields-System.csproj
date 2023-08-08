@@ -37,6 +37,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,6 +52,7 @@
     <Compile Include="Modelo\ITurnosRepositorio.cs" />
     <Compile Include="Modelo\TurnoModelo.cs" />
     <Compile Include="Presentador\MainPresentador.cs" />
+    <Compile Include="Presentador\Tareas Comunes\ModelDataValitation.cs" />
     <Compile Include="Presentador\TurnosPresentador.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

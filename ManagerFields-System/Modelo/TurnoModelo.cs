@@ -15,9 +15,9 @@ namespace ManagerFields_System.Modelo
         private string descripcionTurno;
         private DateTime fechaTurno;
         private TimeSpan horaTurno;
-        private bool pecherasTurno;
-        private bool pelotaTurno;
-        //private int canchaTurno;
+        private string pecherasTurno;
+        private string pelotaTurno;
+        private int canchaTurno;
 
         [DisplayName("Id")]
         public int IdTurno
@@ -53,7 +53,7 @@ namespace ManagerFields_System.Modelo
 
         [DisplayName("Pecheras")]
         [Required(ErrorMessage = "Las pecheras son requeridas")]
-        public bool PecherasTurno
+        public string PecherasTurno
         {
             get { return pecherasTurno; }
             set { pecherasTurno = value; }
@@ -61,13 +61,13 @@ namespace ManagerFields_System.Modelo
 
         [DisplayName("Pelota")]
         [Required(ErrorMessage = "La pelota es requerida")]
-        public bool PelotaTurno
+        public string PelotaTurno
         {
             get { return pelotaTurno; }
             set { pelotaTurno = value; }
         }
 
-        /*
+        
         [DisplayName("Cancha")]
         [Required(ErrorMessage = "La cancha es requerida")]
         public int CanchaTurno
@@ -75,6 +75,5 @@ namespace ManagerFields_System.Modelo
             get { return canchaTurno; }
             set { canchaTurno = value; }
         }
-        */
     }
 }
